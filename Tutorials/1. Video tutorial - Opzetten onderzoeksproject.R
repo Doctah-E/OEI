@@ -2,8 +2,7 @@
 
 
 # .R script file, geen R markdown
-# - liever eerste want overzichtelijker tov R markdown voor knitten en
-#   elke keer nitten is omslachtig
+# - overzichtelijker tov R markdown voor knitten en elke keer nitten omslachtig
 # - onhandig R code in verschillende blokken
 # - text editor wat beter bij .R ipv .Rmd
 
