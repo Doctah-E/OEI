@@ -79,8 +79,12 @@ summary(M3)
 # laat standaard laagste waarde weg
 # kun je anders instellen met relevel(), zie tutorial data transformaties
 
-
-
+# factor variabele van base veranderen
+attributes(dta$ATTEND)
+summary(lm(dta$ATTEND ~ dta$mar_st))
+dta$mar_st <- relevel(dta$mar_st, ref = "WIDOWED")
+str(dta$mar_st)
+summary(lm(dta$ATTEND ~ dta$mar_st))
 
 
 

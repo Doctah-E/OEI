@@ -1,5 +1,9 @@
 # Video tutorial: veelgebruikte data transformaties
 
+# deel II: recode
+# deel I: volgorde en naam variabelen veranderen, van type veranderen, 
+#         rekenkundige transformaties (eventueel per groep)
+
 # een schone start
 rm(list=ls())
 graphics.off()
@@ -12,7 +16,7 @@ library(forcats)
 library(gmodels)
 
 # Data: GSS wave 2018
-setwd("C:/Users/ejvan/OneDrive - Vrije Universiteit Amsterdam/Bachelor Sociologie/OEI_Github/tutorials")
+setwd("C:/Users/ejvan/OneDrive - Vrije Universiteit Amsterdam/Bachelor Sociologie/OEI_Github/No_sync")
 # download.file("https://gss.norc.org/Documents/spss/2018_spss.zip", "2018_spss.zip", mode = "wb")
 dta <- read_spss(unzip("2018_spss.zip", "GSS2018.sav"))
 
@@ -69,14 +73,6 @@ str(dta$mar_st2)
 dta$mar_st3 <- as.character(dta$mar_st)
 str(dta$mar_st3)
 
-# factor variabele van base veranderen
-freq(dta$SATSOC)
-attributes(dta$ATTEND)
-summary(lm(dta$ATTEND ~ dta$mar_st))
-dta$mar_st <- relevel(dta$mar_st, ref = "WIDOWED")
-str(dta$mar_st)
-summary(lm(dta$ATTEND ~ dta$mar_st))
-
 
 # --------------- Rekenkundige transformaties ---------------------------------
 
@@ -100,6 +96,7 @@ tmp <- dta %>% group_by(dta$mar_st) %>% summarise(mean(gelukkig, na.rm = T))
 tmp
 names(tmp)
 barplot(tmp[[2]], names = tmp[[1]])
+
 # of groepsscore opslaan in originele data
 dta <- dta %>% group_by(dta$mar_st) %>% 
     mutate(m_geluk_mst = mean(gelukkig, na.rm = T)) %>% ungroup()

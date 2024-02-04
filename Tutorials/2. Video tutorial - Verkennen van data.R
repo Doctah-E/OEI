@@ -12,7 +12,7 @@ library(psych)
 library(gmodels)
 
 # Data: GSS wave 2018
-setwd("C:/Users/ejvan/OneDrive - Vrije Universiteit Amsterdam/Bachelor Sociologie/OEI_Github/tutorials")
+setwd("C:/Users/ejvan/OneDrive - Vrije Universiteit Amsterdam/Bachelor Sociologie/OEI_Github/No_sync")
 # download.file("https://gss.norc.org/Documents/spss/2018_spss.zip", "2018_spss.zip", mode = "wb")
 dta <- read_spss(unzip("2018_spss.zip", "GSS2018.sav"))
 
@@ -25,7 +25,6 @@ View(dta)
 attributes(dta$ABANY)
 attributes(dta$ABANY)[["label"]]
 lapply(dta, function(x) attributes(x)[["label"]])
-tmp <- lapply(dta, function(x) attributes(x)[["label"]])
 
 names(dta)          # zelfde als colnames()
 
@@ -55,22 +54,22 @@ hist(dta$SATLIFE)
 
 # range van variabelen
 # truc: sla namen variabelen op in vector
-v <- c("CONARMY", "CONBIZ", "CONBUS", "CONCHURH", "CONCLERG")
+v <- dta[c("CONARMY", "CONBIZ", "CONBUS", "CONCHURH", "CONCLERG")]
 v
-str(dta[v])
-descr(dta[v])   # Stargazer ziet er beter uit
+str(v)
+descr(v)   # Stargazer ziet er beter uit
 
 # het volgende werkt helaas niet:
-# freq(dta[v])
+# freq(v)
 # dit wel:
-lapply(dta[v], freq)
+lapply(v, freq)
 
 
 
 # ---------------- Bekijken samenhang bepaalde variabelen ----------------------
 
-corr.test(dta[v])    # package psych
-psych::alpha(dta[v]) # expliciet package want functie vaker gebruikt
+corr.test(v)    # package psych
+psych::alpha(v) # expliciet package want functie vaker gebruikt
 
 plot(dta$AGE, dta$SATLIFE)
 abline(lm(SATLIFE ~ AGE, data= dta))

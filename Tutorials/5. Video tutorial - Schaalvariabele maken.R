@@ -32,11 +32,9 @@ v <- dta[c("SCIENTBE", "SCIENTGO", "SCIENTHE", "SCIENTOD")]
 v <- dta %>% select(starts_with("SCIENT"))
 
 # Variabelen verkennen, eventueel spiegelen
-lapply(v, descr)
 descr(v)
 lapply(v, attributes)
 lapply(v, freq)
-corr.test(v)
 
 # spiegelen
 dta$scientbe_m <- 5 - dta$SCIENTBE
@@ -67,13 +65,12 @@ freq(rowSums(is.na(v)))
 dta$att_sci <- rowMeans(v, na.rm = T)
 print(dta %>% select(scientbe_m, scientgo_m, scienthe_m, att_sci), n = 100)
 freq(dta$att_sci)
-dta$att_sci2 <- rowMeans(v, na.rm = F)
-print(dta %>% select(scientbe_m, scientgo_m, scienthe_m, att_sci, att_sci2), n = 100)
 
 # Toch som score? 
 dta$att_sci3 <- rowSums(v, na.rm = T)
 dta$att_sci4 <- rowSums(v, na.rm = F)
-print(dta %>% select(scientbe_m, scientgo_m, scienthe_m, att_sci3, att_sci4), n = 100)
+print(dta %>% select(scientbe_m, scientgo_m, scienthe_m, att_sci3, att_sci4), 
+      n = 100)
 
 # Dus: gebruik somscore nooit met na.rm = T !!
 

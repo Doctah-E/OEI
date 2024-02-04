@@ -28,7 +28,6 @@ dta <- read_spss(unzip("2018_spss.zip", "GSS2018.sav"))
 freq(dta$MARITAL)           # let op: numeriek
 attributes(dta$MARITAL)
 dta$marital2 <- case_match(dta$MARITAL, 4 ~ 3, .default = dta$MARITAL)
-freq(dta$marital2)
 # zelfde resultaat:
 dta$marital2 <- case_match(dta$MARITAL, 1 ~ 1, 2 ~ 2, 3 ~ 3, 4 ~ 3, 5 ~5)
 freq(dta$marital2)
