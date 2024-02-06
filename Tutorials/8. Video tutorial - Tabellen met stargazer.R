@@ -1,6 +1,5 @@
 # Video tutorial: tabellen met stargazer
 
-
 # een schone start
 rm(list=ls())
 graphics.off()
@@ -16,7 +15,7 @@ setwd("C:/Users/ejvan/OneDrive - Vrije Universiteit Amsterdam/Bachelor Sociologi
 # download.file("https://gss.norc.org/Documents/spss/2018_spss.zip", "2018_spss.zip", mode = "wb")
 dta <- read_spss(unzip("2018_spss.zip", "GSS2018.sav"))
 
-# ------------------------------DATABWERKING -----------------------------------
+# ------------------------------DATABEWERKING -----------------------------------
 
 # levenstevredenheid
 dta$tevr <- 8 - dta$SATLIFE
@@ -43,9 +42,12 @@ attributes(dta$ATTEND)
 
 # Stargazer kan geen tibble aan
 # En wil als input een data frame
-stargazer(c(dta$tevr, dta$AGE), type = "html", 
-          out = "Descriptives.html")
+# Dit werkt niet:
+stargazer(dta[c("tevr", "AGE", "HEALTH", "CLASS", "born", "ATTEND")], 
+          type = "html", out = "Descriptives.html")
+
 tmp <- as.data.frame(dta[c("tevr", "AGE", "HEALTH", "CLASS", "born", "ATTEND")])
+class(tmp)
 stargazer(tmp, type = "html", out = "Descriptives.html")
 ?stargazer
 
