@@ -4,9 +4,16 @@
 # X = inkomen; Y = tevredenheid
 # Z = werkloosheid (of meer algemeen: werkstatus)
 
-# Kan werkeloos zijn een storende variabele zijn? 
+# Kan werkeloos een storende variabele zijn? 
 # werkloos -> inkomen
 # werkloos -> tevredenheid
+
+# niet overnemen; dit is alleen om wat plaatjes in te laden
+library(jpeg)
+img1 <- readJPEG("Dia1.JPG"); grid::grid.raster(img1)
+img2 <- readJPEG("Dia2.JPG"); grid::grid.raster(img2)
+img3 <- readJPEG("Dia3.JPG"); grid::grid.raster(img3)
+img4 <- readJPEG("Dia4.JPG"); grid::grid.raster(img4)
 
 # Let op dat Z niet een mediator is
 # Is X -> Z aannemelijk? 
@@ -47,6 +54,7 @@ freq(dta$WRKSTAT)
 # simpeler: wel/ niet werken
 dta$werkloos <- case_match(dta$WRKSTAT, 1:2 ~ 0, 3:4 ~ 1, .default = NA)
 freq(dta$werkloos)
+dta2 <- dta[!is.na(dta$werkloos),]
 
 
 # ------------------------- ANALYSES -------------------------------------------
@@ -55,10 +63,10 @@ freq(dta$werkloos)
 # Vergelijk model zonder en met storende variabele(n)
 
 # Model X -> Y
-M1 <- lm(tevr ~ inkomen, data = dta[!is.na(dta$werkloos), ])
+M1 <- lm(tevr ~ inkomen, data = dta2)
 summary(M1)
 # Model X -> Y gecontroleerd voor Z
-M2 <- lm(tevr ~ inkomen + werkloos, data = dta)
+M2 <- lm(tevr ~ inkomen + werkloos, data = dta2)
 summary(M2)
 # wat fijnere output
 stargazer(M1, M2, type = "html", out = "Reg.html")

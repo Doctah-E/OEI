@@ -3,6 +3,9 @@
 # Eerder: effecten schatten en significantie
 # Nu: hoe groot is het effect? Is het betekenisvol? 
 
+# Voorbeeld: effecten van 1) diagnose mentaal gezondheidsprobleem en 
+# 2) leeftijd op levenstevredenheid
+
 # een schone start
 rm(list=ls())
 graphics.off()
