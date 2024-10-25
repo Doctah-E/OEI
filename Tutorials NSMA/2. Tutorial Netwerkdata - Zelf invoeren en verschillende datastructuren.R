@@ -43,7 +43,6 @@ igr_fr <- graph_from_adjacency_matrix(am_fr, mode= "directed")
 
 # Bij een data frame gebruik je "graph_from_data_frame"
 
-
 # klopt het?
 igr_fr
 plot(igr_fr)

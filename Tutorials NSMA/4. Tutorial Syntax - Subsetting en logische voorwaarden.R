@@ -5,10 +5,6 @@ library("summarytools")
 library("tidyverse")
 
 
-# ********** Voor bij een update:
-# - duidelijker maken verschillende manier subsetten: dplyr, $, [1], ["naam"]
-
-
 # -------------------------- Subsetting -------------------------------
 
 # Data maken: tentamen en presentatie cijfers

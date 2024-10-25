@@ -14,21 +14,15 @@ library(dplyr)
 graphics.off()
 rm(list=ls())
 
-# PM voor een nieuwe versie: misschien liever nog nieuw project starten
-# idem: pad halen vanuit R bij files tab
-
 # werkmap aanwijzen
 setwd("C:/Surfdrive/temp")         # let op: forward slash
 getwd()
 dir()
 
-# PM voor een nieuwe versie: gebruik data die gemakkelijker te verkrijgen zijn
 soc_nw <- read.csv("W4_Sociometric_long.csv", header = T, sep = ";")
 
 
-
 # --------- Zet hier een logische titel bij deze sectie ------------------
-
 
 # Sla altijd je syntax op, overschrijf nooit de originele data!!!
 write.csv(soc_nw, file="W4_Sociometric_long_bewerkt.csv")
