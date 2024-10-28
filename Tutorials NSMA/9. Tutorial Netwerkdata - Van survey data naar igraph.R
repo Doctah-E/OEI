@@ -60,7 +60,7 @@ vl <- relocate(vl, value)
 vl <- arrange(vl, value)
 vl <- distinct(vl, value, .keep_all = T)
 
-# nu kunnen we een igraph object maken met zowel de edge list als de vert
+# nu kunnen we een igraph object maken met zowel de edge list als de vertices list
 igr_vr <- graph_from_data_frame(el, directed = T, vertices = vl)
 plot.igraph(igr_vr, edge.arrow.size = 0.2)
 V(igr_vr)
