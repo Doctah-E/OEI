@@ -5,7 +5,12 @@
 # d.w.z. data transformaties, visualisaties, analyses
 
 # Veronderstelling: R en R Studio geïnstalleerd
-# [link installeren R & RStudio]
+
+# Hulp bij installatie?
+# Link geschreven tutorial Mauricio Garnier Villareal op Canvas:
+# https://canvas.vu.nl/courses/59293/modules
+# Link Github Mauricio:
+# https://github.com/maugavilla/well_hello_stats/blob/main/tutorials/0_2_Installing_windows.md
 
 
 # -----------------------------------------------------------------------------
@@ -15,7 +20,7 @@
 
 # Openen syntax file (script, code). Extensie .R
 # Taal is totaal verschillend
-# Syntax = script, code; Data = data frame; Commands = functions;  
+# Syntax = script, code; Data = data frame; Commands = functions; . = NA  
 
 # Het symbool voor commentaar is de hashtag ipv asterisk (*)
 # Regels eindigen niet met een punt
@@ -55,6 +60,7 @@ library(haven)
 
 # ------------ Maak SPSS bestand / geen onderdeel tutorial --------------------
 
+set.seed(1234)
 tmp <- data.frame(A= sample(c(0:10), 10, replace = T),
                   B= sample(c(0:10), 10, replace = T),
                   C= sample(c(0:10), 10, replace = T))
@@ -78,7 +84,10 @@ View(dta)   # "case sensitive"
 # Ook niet echt variable view, maar kun je uitdraaien (of klikken environment)
 str(dta)
 
-# [link data bekijken]
+
+# Uitgebreidere uitleg data verkennen:
+# https://youtu.be/i-cogQfBPEw?si=MuYYkGBVHLLSqtYG
+# https://github.com/ejvingen/R-tutorials/blob/main/Tutorials%20OEI/2.%20Video%20tutorial%20-%20Verkennen%20van%20data.R
 
 
 # -----------------------------------------------------------------------------
@@ -96,7 +105,10 @@ attributes(dta$A)
 # Ingebouwde hulp
 ?read_sav()
 
-# [link gebruiken help in R]
+
+# Meer uitleg gebruiken ingebouwde hulp in R:
+# https://youtu.be/PHcyNNOqIKY?si=2zqOUiq9ONO-dFAJ
+# https://github.com/ejvingen/R-tutorials/blob/main/Tutorials%20NSMA/0.%20Tutorial%20-%20Het%20gebruiken%20van%20ingebouwde%20hulp%20in%20R.R
 
 
 # -----------------------------------------------------------------------------
