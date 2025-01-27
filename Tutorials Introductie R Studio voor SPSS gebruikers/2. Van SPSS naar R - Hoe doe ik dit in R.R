@@ -8,7 +8,7 @@
 library(haven)   
 
 # gebruik install.packages() als je dit pakket niet hebt
-install.packages("haven")
+# install.packages("haven")
 
 
 # -----------------------------------------------------------------------------
@@ -108,10 +108,10 @@ View(dta)
 # -----------------------------------------------------------------------------
 
 # Hoe krijg ik een kruistabel (CROSSTABS)
-install.packages("gmodels")
+# install.packages("gmodels")
 library(gmodels)
 CrossTable(dta$A, dta$F)
-CrossTable(x= dta$A, y= dta$F, prop.chisq = F, prop.r = F, prop.c = F, 
+CrossTable(x= dta$A, y= dta$F, prop.chisq = F, prop.r = F, prop.c = T, 
            prop.t = F)
 
 

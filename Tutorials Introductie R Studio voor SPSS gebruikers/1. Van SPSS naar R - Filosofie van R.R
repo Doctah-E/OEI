@@ -2,7 +2,7 @@
 
 
 # Veronderstelling: ervaring met werken met SPSS syntax
-# d.w.z. data transformaties, visualisaties, analyses
+# d.w.z. data transformaties, analyses
 
 # Veronderstelling: R en R Studio geïnstalleerd
 
@@ -19,6 +19,7 @@
 # Je hebt alles in één scherm ipv data, syntax, output
 
 # Openen syntax file (script, code). Extensie .R
+
 # Taal is totaal verschillend
 # Syntax = script, code; Data = data frame; Commands = functions; . = NA  
 
@@ -31,7 +32,7 @@
 # Console: lijkt op output venster SPSS maar ook direct "commando's" intypen
 
 
-# -----------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 # Andere filosofie R: "er zijn alleen objecten en functies"
 # Je kunt een object aanmaken door er iets aan toe te wijzen: <-
@@ -52,7 +53,7 @@ rm(x)
 # Data open en aan object koppelen (ipv get file)
 # Packages. Installeren, openen
 # Haven
-install.packages("haven")
+# install.packages("haven")
 library(haven)
 
 # Tidyverse: packages met gedeelde aanpak/ logica
@@ -92,7 +93,7 @@ str(dta)
 
 # -----------------------------------------------------------------------------
 
-# # objecten hebben attributes ($)
+# objecten hebben attributes ($)
 # als je variabelen wilt bewerken geef je in base R altijd het data object op
 attributes(dta$A)
 # functies zijn vaak zowel om uit te lezen als om toe te schrijven
